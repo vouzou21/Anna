@@ -14,7 +14,7 @@
   *{box-sizing:border-box}
   body {
     font-family: "Georgia", serif;
-    background-image: url('background.jpg'); /* βάλε τη δική σου εικόνα */
+    background-image: url('background.jpg');
     background-size: cover;
     background-position: center;
     color: var(--text);
@@ -63,7 +63,6 @@
     margin: 28px auto;
     max-width: 620px;
   }
-  /* Responsive video wrapper (όταν εμφανίσουμε τον player) */
   .video-wrap{position:relative; padding-top:56.25%; height:0; overflow:hidden; border-radius:12px; margin-top:12px}
   .video-wrap iframe{position:absolute; top:0; left:0; width:100%; height:100%;}
 </style>
@@ -143,21 +142,18 @@
         Ήσυχος.<br>
         Γιατί αυτή τη φορά κράτησα τον λόγο μου.</p>
 
-        <!-- Κουμπί για να παίξει το τραγούδι (mobile-safe) -->
         <div style="text-align:center; margin-top:10px;">
-          <button class="btn" id="playSongBtn" onclick="playSong()">Παίξε το τραγούδι</button>
+          <button class="btn" id="playSongBtn" type="button" onclick="playSong()">Παίξε το τραγούδι</button>
         </div>
 
-        <!-- Ορατός player, κρυφός μέχρι να πατηθεί το κουμπί -->
+        <!-- Player area -->
         <div class="video-wrap" id="playerWrap" style="display:none;">
-          <iframe id="music4"
-                  src=""
-                  title="Χάρις Αλεξίου - Ένα Φιλί"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
-                  playsinline>
-          </iframe>
+          <div id="music4"></div>
+        </div>
+
+        <!-- Fallback link -->
+        <div id="ytFallback" style="display:none; text-align:center; margin-top:8px;">
+          <a class="btn" href="https://youtu.be/ONMbPQi8JwI" target="_blank" rel="noopener">Άνοιξέ το στο YouTube</a>
         </div>
       </div>
 
@@ -196,6 +192,9 @@
     </div>
   </div>
 
+<!-- YouTube API -->
+<script src="https://www.youtube.com/iframe_api"></script>
+
 <script>
 function eqi(a,b){ return (a||'').trim().toLowerCase() === (b||'').trim().toLowerCase(); }
 
@@ -210,31 +209,50 @@ function unlockStep(num, pass) {
     if (lock) lock.style.display = "none";
     if (cont) cont.style.display = "block";
     if (area) area.style.display = "none";
-
     alert(`Το STEP ${num} ξεκλείδωσε.`);
   } else {
     alert("Λάθος κωδικός.");
   }
 }
 
-/* Παίξε το τραγούδι στο STEP 4 μετά από κλικ (mobile-safe) */
+/* YouTube API player για κινητά */
+let ytReady = false;
+let ytPlayer = null;
+
+function onYouTubeIframeAPIReady(){ ytReady = true; }
+
 function playSong(){
   const wrap = document.getElementById('playerWrap');
-  const iframe = document.getElementById('music4');
-  const btn = document.getElementById('playSongBtn');
+  const fb   = document.getElementById('ytFallback');
+  const btn  = document.getElementById('playSongBtn');
 
-  if (!iframe.src) {
-    // Χάρις Αλεξίου – Ένα Φιλί
-    iframe.src = "https://www.youtube.com/embed/ONMbPQi8JwI?autoplay=1&rel=0&modestbranding=1&playsinline=1";
-  }
   wrap.style.display = "block";
-  if (btn) btn.style.display = "none";
+  if(btn) btn.style.display = "none";
+
+  if(!ytReady){
+    setTimeout(playSong, 200);
+    return;
+  }
+
+  try {
+    if(!ytPlayer){
+      ytPlayer = new YT.Player('music4', {
+        videoId: 'ONMbPQi8JwI', // Χάρις Αλεξίου - Ένα Φιλί
+        playerVars: { autoplay: 1, rel: 0, modestbranding: 1, playsinline: 1 },
+        events: { onReady: e => e.target.playVideo() }
+      });
+    } else {
+      ytPlayer.playVideo();
+    }
+  } catch(e){
+    fb.style.display = "block";
+  }
 }
 
-/* Master unlock για όλα τα steps */
+/* Master unlock για όλα */
 function unlockAll(){
   const master = prompt("Master κωδικός για ξεκλείδωμα όλων:");
-  const MASTER_KEY = "kimon-master"; // άλλαξέ τον αν θες
+  const MASTER_KEY = "kimon-master";
   if (!eqi(master, MASTER_KEY)) {
     alert("Λάθος master κωδικός.");
     return;
