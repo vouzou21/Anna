@@ -1,1 +1,91 @@
-`
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Πώς να ξανακερδίσω την Άννα</title>
+<style>
+  body{
+    margin:0; min-height:100vh; display:flex; flex-direction:column;
+    align-items:center; justify-content:center; text-align:center;
+    color:#fff; font-family:Georgia, serif;
+    background:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+    padding:24px;
+  }
+  h1{
+    font-size:2.3rem;
+    margin:0 0 14px;
+    background:rgba(0,0,0,.5);
+    padding:12px 20px;
+    border-radius:14px;
+  }
+  p.lead{
+    max-width:720px;
+    background:rgba(0,0,0,.35);
+    padding:12px 16px;
+    border-radius:10px;
+    font-size:1.1rem;
+  }
+  .steps{max-width:780px; width:100%; margin-top:22px;}
+  .card{
+    background:rgba(0,0,0,.35);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:14px;
+    padding:18px;
+    margin:12px 0;
+    text-align:left;
+    backdrop-filter: blur(3px);
+    animation: fadeIn 1.2s ease;
+  }
+  .card h3{
+    margin:0 0 8px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  }
+  .btn{
+    border:0; padding:10px 14px; border-radius:10px; cursor:pointer;
+    font-weight:700; background:#ffffffd9; color:#222; transition:.25s;
+  }
+  .btn:hover{transform:scale(1.05);}
+  .content{display:none; margin-top:6px; line-height:1.55;}
+  .locked{
+    font-size:.95rem; opacity:.9;
+    display:flex; align-items:center; gap:8px;
+  }
+  .lock-chip{
+    font-size:.8rem;
+    padding:4px 8px;
+    border-radius:999px;
+    background:#ff6b6b;
+    color:#fff;
+  }
+  footer{
+    margin-top:20px;
+    font-size:.85rem;
+    opacity:.8;
+    background:rgba(0,0,0,.35);
+    padding:8px 16px;
+    border-radius:10px;
+  }
+  @keyframes fadeIn{
+    from{opacity:0; transform:translateY(15px);}
+    to{opacity:1; transform:none;}
+  }
+</style>
+</head>
+<body>
+  <h1>Πώς να ξανακερδίσω την Άννα</h1>
+  <p class="lead">Μερικές φορές, οι πιο όμορφες ιστορίες χρειάζονται λίγο χρόνο… και λίγη πίστη.</p>
+
+  <div class="steps">
+    <div class="card">
+      <h3>Step 1 <button class="btn" onclick="reveal('s1')">Αποκάλυψε 💌</button></h3>
+      <div id="s1" class="content">
+        <p><strong>Κάνω δώρο εισιτήρια για το τέλος Δεκεμβρίου</strong> — έχοντας αυτοπεποίθηση ότι μέχρι τότε θα είμαστε ξανά μαζί.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Step 2 <span class="lock-chip">Κλειδωμένο 🔒</span></h3>
+      <div class="locked">
