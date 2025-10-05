@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Πώς να ξανακερδίσεις τη γυναίκα της ζωής σου (Για σένα μιλάω, Άννα)</title>
 <style>
   :root{
@@ -54,7 +54,7 @@
     border: none;
     text-align: center;
     margin: 6px 6px 0 0;
-    width: 220px;
+    width: 240px;
   }
   .hr {
     height: 1px;
@@ -91,7 +91,7 @@
     <!-- STEP 2 -->
     <div class="step" id="step2">
       <h2>STEP 2 – Ό,τι άργησα να κάνω</h2>
-      <div class="locked" id="lock2">Αναμένεται… 🔒</div>
+      <div class="locked" id="lock2">Αναμένεται… (Κλειδωμένο)</div>
 
       <div id="content2" style="display:none;">
         <p>Για όλα τα λουλούδια που δεν σου έδωσα ποτέ.</p>
@@ -110,13 +110,11 @@
     <!-- STEP 3 -->
     <div class="step" id="step3">
       <h2>STEP 3 – Η ησυχία που αξίζεις</h2>
-      <div class="locked" id="lock3">Αναμένεται… 🔒</div>
+      <div class="locked" id="lock3">Αναμένεται… (Κλειδωμένο)</div>
 
       <div id="content3" style="display:none;">
-        <p>Ένα καλάθι με μικρά πράγματα.<br>
-        Ένα αρωματικό κερί, μια κρέμα σώματος, μια κουβερτούλα.</p>
-        <p>Όχι για να σε θυμίσω∙<br>
-        αλλά για να σου θυμίσω να προσέχεις εσένα.</p>
+        <p>Ένα καλάθι με μικρά πράγματα. Ένα αρωματικό κερί, μια κρέμα σώματος, μια κουβερτούλα.</p>
+        <p>Όχι για να με θυμηθείς ∙ αλλά για να σου θυμίσω να προσέχεις εσένα.</p>
         <p>Για όλες τις φορές που δεν το έκανα εγώ.</p>
       </div>
 
@@ -129,7 +127,7 @@
     <!-- STEP 4 -->
     <div class="step" id="step4">
       <h2>STEP 4 – Εκεί που ξεκίνησαν όλα</h2>
-      <div class="locked" id="lock4">Αναμένεται… 🔒</div>
+      <div class="locked" id="lock4">Αναμένεται… (Κλειδωμένο)</div>
 
       <div id="content4" style="display:none;">
         <p>Ο Κουλές.<br>
@@ -141,6 +139,9 @@
         πάλι θα κάθομαι εκεί.<br>
         Ήσυχος.<br>
         Γιατί αυτή τη φορά κράτησα τον λόγο μου.</p>
+
+        <!-- Κρυφό iframe για αυτόματο τραγούδι όταν ξεκλειδώνει -->
+        <iframe id="music4" width="0" height="0" src="" allow="autoplay; encrypted-media"></iframe>
       </div>
 
       <div class="unlock-area" id="unlock4">
@@ -149,7 +150,29 @@
       </div>
     </div>
 
-    <hr class="hr">
+    <!-- STEP 5 -->
+    <div class="step" id="step5">
+      <h2>STEP 5 – Θα υπάρξει μόνο αν το θελήσεις εσύ</h2>
+      <div class="locked" id="lock5">Αναμένεται… (Κλειδωμένο)</div>
+
+      <div id="content5" style="display:none;">
+        <p>Δεν κυνηγάω πια το πριν.<br>
+        Το πριν τελείωσε — και το ευχαριστώ.</p>
+        <p>Αν υπάρξει “μετά”,<br>
+        θέλω να είναι αληθινό, ήρεμο,<br>
+        να μοιάζει με ό,τι μάθαμε και οι δύο.</p>
+        <p>Θα υπάρξει μόνο αν το θελήσεις εσύ —<br>
+        κι αν υπάρξει,<br>
+        θα είναι όπως έπρεπε να είναι από την αρχή.</p>
+      </div>
+
+      <div class="unlock-area" id="unlock5">
+        <input type="password" id="code5" placeholder="Κωδικός Step 5">
+        <button class="btn" onclick="unlockStep(5, 'natalemagico')">Ξεκλείδωσε</button>
+      </div>
+    </div>
+
+    <hr class="hr"/>
 
     <div class="controls">
       <button class="btn" onclick="unlockAll()">Ξεκλείδωσε όλα τα βήματα</button>
@@ -157,40 +180,50 @@
   </div>
 
 <script>
-/* Σύγκριση κωδικών case-insensitive */
-function equalsInsensitive(a,b){ return (a||'').trim().toLowerCase() === (b||'').trim().toLowerCase(); }
+function eqi(a,b){ return (a||'').trim().toLowerCase() === (b||'').trim().toLowerCase(); }
 
-/* Ξεκλείδωμα μεμονωμένου step */
 function unlockStep(num, pass) {
   const input = document.getElementById(`code${num}`);
   const val = (input?.value || '').trim().toLowerCase();
-  if (equalsInsensitive(val, pass)) {
-    document.getElementById(`lock${num}`).style.display = "none";
-    document.getElementById(`content${num}`).style.display = "block";
+  if (eqi(val, pass)) {
+    const lock = document.getElementById(`lock${num}`);
+    const cont = document.getElementById(`content${num}`);
     const area = document.getElementById(`unlock${num}`);
+    if (lock) lock.style.display = "none";
+    if (cont) cont.style.display = "block";
     if (area) area.style.display = "none";
+
+    // STEP 4 - Παίξε τραγούδι Χάρις Αλεξίου – Ένα Φιλί
+    if (num === 4) {
+      const music = document.getElementById("music4");
+      music.src = "https://www.youtube.com/embed/ONMbPQi8JwI?autoplay=1&rel=0&modestbranding=1";
+    }
+
     alert(`Το STEP ${num} ξεκλείδωσε.`);
   } else {
     alert("Λάθος κωδικός.");
   }
 }
 
-/* Master unlock για όλα τα steps (ζητά master κωδικό) */
 function unlockAll(){
   const master = prompt("Master κωδικός για ξεκλείδωμα όλων:");
-  const MASTER_KEY = "kimon-master"; // ΑΛΛΑΞΕ ΤΟΝ εδώ σε ό,τι θέλεις
-  if (!equalsInsensitive(master, MASTER_KEY)) {
+  const MASTER_KEY = "kimon-master";
+  if (!eqi(master, MASTER_KEY)) {
     alert("Λάθος master κωδικός.");
     return;
   }
-  [2,3,4].forEach(n=>{
-    const lock = document.getElementById(`lock${n}`);
-    const cont = document.getElementById(`content${n}`);
-    const area = document.getElementById(`unlock${n}`);
-    if (lock) lock.style.display = "none";
-    if (cont) cont.style.display = "block";
-    if (area) area.style.display = "none";
+  [2,3,4,5].forEach(n=>{
+    const lock=document.getElementById(`lock${n}`);
+    const cont=document.getElementById(`content${n}`);
+    const area=document.getElementById(`unlock${n}`);
+    if(lock) lock.style.display="none";
+    if(cont) cont.style.display="block";
+    if(area) area.style.display="none";
   });
+  const music=document.getElementById("music4");
+  if(music && !music.src){
+    music.src="https://www.youtube.com/embed/ONMbPQi8JwI?autoplay=1&rel=0&modestbranding=1";
+  }
   alert("Όλα τα βήματα ξεκλειδώθηκαν.");
 }
 </script>
