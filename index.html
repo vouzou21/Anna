@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Πώς να ξανακερδίσω την γυναίκα της ζωής μου πίσω</title>
+<title>Πώς να ξανακερδίσω την γυναίκα της ζωής μου πίσω. (Ναι, Άννα... εσύ είσαι αυτή)</title>
 
 <!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Noto+Serif:wght@400;600&display=swap&subset=greek" rel="stylesheet">
@@ -26,7 +26,7 @@
     color: #fff;
     font-family: "Noto Serif", serif;
     background:
-      linear-gradient(rgba(0,0,0,.4), rgba(0,0,0,.5)),
+      linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.55)),
       var(--bg) center/cover no-repeat fixed;
     padding: 20px;
   }
@@ -126,4 +126,44 @@
 
 <body>
   <h1>
-    Πώς να ξανακερδίσω την γυναίκα τη
+    Πώς να ξανακερδίσω την γυναίκα της ζωής μου πίσω.
+    <span>(Ναι, Άννα... εσύ είσαι αυτή)</span>
+  </h1>
+
+  <p class="lead">
+    Μερικές φορές, οι πιο όμορφες ιστορίες χρειάζονται λίγο χρόνο... και λίγη πίστη.
+  </p>
+
+  <div class="steps">
+    <!-- STEP 1 -->
+    <div class="card">
+      <h3>Step 1</h3>
+      <button onclick="reveal('s1')">Αποκάλυψε 💌</button>
+      <div id="s1" class="hidden" style="margin-top:12px;">
+        <p><strong>Αγοράζω εισιτήρια για το χωριό σου στην Ιταλία</strong> — για να σου δείξω πόσο σίγουρος είμαι ότι μέχρι τότε θα είμαστε μαζί.</p>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="card">
+      <h3>Step 2 <span class="lock-chip">Κλειδωμένο 🔒</span></h3>
+      <p>Θα ανέβει σε μελλοντική ημερομηνία.</p>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="card">
+      <h3>Step 3 <span class="lock-chip">Κλειδωμένο 🔒</span></h3>
+      <p>Θα ανέβει σε μελλοντική ημερομηνία.</p>
+    </div>
+  </div>
+
+  <footer>📅 Τα επόμενα βήματα (2 & 3) θα αποκαλυφθούν όταν τα προσθέσεις με νέο deploy.</footer>
+
+  <script>
+    function reveal(id){
+      const el = document.getElementById(id);
+      el.classList.toggle('hidden');
+    }
+  </script>
+</body>
+</html>
