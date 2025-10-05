@@ -5,135 +5,194 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Πώς να ξανακερδίσεις τη γυναίκα της ζωής σου (Για σένα μιλάω, Άννα)</title>
 <style>
+  :root{
+    --bg-overlay: rgba(0,0,0,0.58);
+    --accent: #e3b04b;
+    --accent-hover: #ffd76a;
+    --text: #ffffff;
+  }
+  *{box-sizing:border-box}
   body {
     font-family: "Georgia", serif;
-    background-image: url('background.jpg'); /* βάλε τη δική σου φωτο */
+    background-image: url('background.jpg'); /* βάλε τη δική σου εικόνα */
     background-size: cover;
     background-position: center;
-    color: #fff;
+    color: var(--text);
     text-shadow: 1px 1px 4px #000;
-    padding: 40px;
+    padding: 40px 20px;
     line-height: 1.6;
+    min-height: 100vh;
   }
-  h1, h2 {
-    text-align: center;
-  }
+  h1, h2 { text-align: center; margin: 0 0 8px 0; }
+  .subtitle {text-align:center; margin-bottom: 24px; font-style: italic;}
+  .wrap { max-width: 780px; margin: 0 auto; }
   .step {
-    background: rgba(0,0,0,0.55);
+    background: var(--bg-overlay);
     padding: 20px;
     border-radius: 12px;
-    margin: 25px auto;
-    max-width: 700px;
+    margin: 22px 0;
+    backdrop-filter: blur(2px);
   }
-  .locked {
-    text-align: center;
-    font-style: italic;
-    opacity: 0.7;
-  }
-  button {
-    display: block;
-    margin: 15px auto;
-    padding: 10px 22px;
+  .locked { text-align: center; font-style: italic; opacity: 0.85; }
+  .controls { text-align:center; margin: 24px 0 10px; }
+  .btn {
+    display: inline-block;
+    margin: 8px;
+    padding: 10px 20px;
     border: none;
-    border-radius: 8px;
-    background: #e3b04b;
+    border-radius: 10px;
+    background: var(--accent);
     color: #000;
-    font-size: 16px;
+    font-size: 15px;
     cursor: pointer;
   }
-  button:hover {
-    background: #ffd76a;
+  .btn:hover { background: var(--accent-hover); }
+  .unlock-area { text-align:center; margin-top: 10px; }
+  input[type="password"]{
+    padding: 9px 12px;
+    border-radius: 8px;
+    border: none;
+    text-align: center;
+    margin: 6px 6px 0 0;
+    width: 220px;
   }
-  .hidden {
-    display: none;
+  .hr {
+    height: 1px;
+    background: rgba(255,255,255,0.35);
+    border: 0;
+    margin: 28px auto;
+    max-width: 620px;
   }
 </style>
 </head>
 <body>
+  <div class="wrap">
+    <h1>Πώς να ξανακερδίσεις τη γυναίκα της ζωής σου</h1>
+    <div class="subtitle">(Για σένα μιλάω, Άννα)</div>
 
-<h1>Πώς να ξανακερδίσεις τη γυναίκα της ζωής σου</h1>
-<p style="text-align:center;"><em>(Για σένα μιλάω, Άννα)</em></p>
+    <!-- STEP 1 -->
+    <div class="step" id="step1">
+      <h2>STEP 1 – Η Αρχή</h2>
+      <p>Δεν ήξερα ποιο βιβλίο να διαλέξω.<br>
+      Διάλεξα αυτό που μιλάει για δύο ανθρώπους<br>
+      που χρειάστηκαν χρόνο για να μάθουν να βλέπουν καθαρά.</p>
 
-<div class="step" id="step1">
-  <h2>📘 STEP 1 – Η Αρχή</h2>
-  <p>Δεν ήξερα ποιο βιβλίο να διαλέξω.<br>
-  Διάλεξα αυτό που μιλάει για δύο ανθρώπους<br>
-  που χρειάστηκαν χρόνο για να μάθουν να βλέπουν καθαρά.</p>
+      <p>Όχι για να ταυτιστούμε∙<br>
+      αλλά γιατί ένιωσα ότι κάποτε ήμασταν κι εμείς κάπως έτσι.</p>
 
-  <p>Όχι για να ταυτιστούμε∙<br>
-  αλλά γιατί ένιωσα ότι κάποτε ήμασταν κι εμείς κάπως έτσι.</p>
+      <p>Δεν είναι απολογία∙ είναι υπενθύμιση.</p>
 
-  <p>Δεν είναι απολογία∙ είναι υπενθύμιση.</p>
+      <p>Έμαθα πως αν χαθείς απ’ τον εαυτό σου,<br>
+      χάνεις και όσους αγαπάς.</p>
 
-  <p>Έμαθα πως αν χαθείς απ’ τον εαυτό σου,<br>
-  χάνεις και όσους αγαπάς.</p>
+      <p>Αυτή τη φορά, είμαι εδώ.</p>
+    </div>
 
-  <p>Αυτή τη φορά, είμαι εδώ.</p>
-</div>
+    <!-- STEP 2 -->
+    <div class="step" id="step2">
+      <h2>STEP 2 – Ό,τι άργησα να κάνω</h2>
+      <div class="locked" id="lock2">Αναμένεται… 🔒</div>
 
-<!-- Τα επόμενα βήματα εμφανίζονται αλλά είναι "αναμενόμενα" -->
-<div class="step" id="step2">
-  <h2>💐 STEP 2 – Ανθοδέσμη</h2>
-  <p class="locked">Αναμένεται…</p>
-</div>
+      <div id="content2" style="display:none;">
+        <p>Για όλα τα λουλούδια που δεν σου έδωσα ποτέ.</p>
+        <p>Όχι επειδή δεν ήθελα∙<br>
+        αλλά γιατί τότε δεν ήξερα τι σημαίνει να δείχνεις κάτι την ώρα που το νιώθεις.</p>
+        <p>Σου αφήνω λίγο χρόνο ακόμα να διαβάσεις το βιβλίο σου.<br>
+        Θα περιμένω — χωρίς λόγια, μόνο με λουλούδια.</p>
+      </div>
 
-<div class="step" id="step3">
-  <h2>🧺 STEP 3 – Η ησυχία που αξίζεις</h2>
-  <p class="locked">Αναμένεται…</p>
-</div>
+      <div class="unlock-area" id="unlock2">
+        <input type="password" id="code2" placeholder="Κωδικός Step 2">
+        <button class="btn" onclick="unlockStep(2, 'tiamotantotanto')">Ξεκλείδωσε</button>
+      </div>
+    </div>
 
-<div class="step" id="step4">
-  <h2>🌅 STEP 4 – Εκεί που ξεκίνησαν όλα</h2>
-  <p class="locked">Αναμένεται…</p>
-</div>
+    <!-- STEP 3 -->
+    <div class="step" id="step3">
+      <h2>STEP 3 – Η ησυχία που αξίζεις</h2>
+      <div class="locked" id="lock3">Αναμένεται… 🔒</div>
 
-<button onclick="revealNext()">Αποκάλυψε το επόμενο βήμα</button>
+      <div id="content3" style="display:none;">
+        <p>Ένα καλάθι με μικρά πράγματα.<br>
+        Ένα αρωματικό κερί, μια κρέμα σώματος, μια κουβερτούλα.</p>
+        <p>Όχι για να σε θυμίσω∙<br>
+        αλλά για να σου θυμίσω να προσέχεις εσένα.</p>
+        <p>Για όλες τις φορές που δεν το έκανα εγώ.</p>
+      </div>
+
+      <div class="unlock-area" id="unlock3">
+        <input type="password" id="code3" placeholder="Κωδικός Step 3">
+        <button class="btn" onclick="unlockStep(3, 'scusa')">Ξεκλείδωσε</button>
+      </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="step" id="step4">
+      <h2>STEP 4 – Εκεί που ξεκίνησαν όλα</h2>
+      <div class="locked" id="lock4">Αναμένεται… 🔒</div>
+
+      <div id="content4" style="display:none;">
+        <p>Ο Κουλές.<br>
+        Το μέρος του πρώτου φιλιού.</p>
+        <p>Δεν θέλω να το ξανακάνουμε ίδιο∙<br>
+        θέλω να το κάνουμε από την αρχή.</p>
+        <p>Αν έρθεις, θα ξέρεις.</p>
+        <p>Κι αν δεν έρθεις,<br>
+        πάλι θα κάθομαι εκεί.<br>
+        Ήσυχος.<br>
+        Γιατί αυτή τη φορά κράτησα τον λόγο μου.</p>
+      </div>
+
+      <div class="unlock-area" id="unlock4">
+        <input type="password" id="code4" placeholder="Κωδικός Step 4">
+        <button class="btn" onclick="unlockStep(4, 'unbacio')">Ξεκλείδωσε</button>
+      </div>
+    </div>
+
+    <hr class="hr">
+
+    <div class="controls">
+      <button class="btn" onclick="unlockAll()">Ξεκλείδωσε όλα τα βήματα</button>
+    </div>
+  </div>
 
 <script>
-let currentStep = 1;
-function revealNext() {
-  const next = document.getElementById(`step${currentStep+1}`);
-  if (next) {
-    // Αν υπάρχει "Αναμένεται...", αντικατάστησέ το με το πραγματικό περιεχόμενο
-    if (currentStep === 1) {
-      next.innerHTML = `
-      <h2>💐 STEP 2 – Ανθοδέσμη</h2>
-      <p>Για όλα τα λουλούδια που δεν σου έδωσα ποτέ.</p>
-      <p>Όχι επειδή δεν ήθελα∙<br>
-      αλλά γιατί τότε δεν ήξερα τι σημαίνει να δείχνεις κάτι την ώρα που το νιώθεις.</p>
-      <p>Σου αφήνω λίγο χρόνο ακόμα να διαβάσεις το βιβλίο σου.<br>
-      Θα περιμένω — χωρίς λόγια, μόνο με λουλούδια.</p>`;
-    } else if (currentStep === 2) {
-      next.innerHTML = `
-      <h2>🧺 STEP 3 – Η ησυχία που αξίζεις</h2>
-      <p>Ένα καλάθι με μικρά πράγματα.<br>
-      Ένα αρωματικό κερί, μια κρέμα σώματος, μια κουβερτούλα.</p>
-      <p>Όχι για να σε θυμίσω∙<br>
-      αλλά για να σου θυμίσω να προσέχεις εσένα.</p>
-      <p>Για όλες τις φορές που δεν το έκανα εγώ.</p>`;
-    } else if (currentStep === 3) {
-      next.innerHTML = `
-      <h2>🌅 STEP 4 – Εκεί που ξεκίνησαν όλα</h2>
-      <p>Ο Κουλές.<br>
-      Το μέρος του πρώτου φιλιού.</p>
-      <p>Δεν θέλω να το ξανακάνουμε ίδιο∙<br>
-      θέλω να το κάνουμε από την αρχή.</p>
-      <p>Αν έρθεις, θα ξέρεις.</p>
-      <p>Κι αν δεν έρθεις,<br>
-      πάλι θα κάθομαι εκεί.<br>
-      Ήσυχος.<br>
-      Γιατί αυτή τη φορά κράτησα τον λόγο μου.</p>`;
-    }
-    currentStep++;
+/* Σύγκριση κωδικών case-insensitive */
+function equalsInsensitive(a,b){ return (a||'').trim().toLowerCase() === (b||'').trim().toLowerCase(); }
+
+/* Ξεκλείδωμα μεμονωμένου step */
+function unlockStep(num, pass) {
+  const input = document.getElementById(`code${num}`);
+  const val = (input?.value || '').trim().toLowerCase();
+  if (equalsInsensitive(val, pass)) {
+    document.getElementById(`lock${num}`).style.display = "none";
+    document.getElementById(`content${num}`).style.display = "block";
+    const area = document.getElementById(`unlock${num}`);
+    if (area) area.style.display = "none";
+    alert(`Το STEP ${num} ξεκλείδωσε.`);
   } else {
-    alert("Δεν υπάρχουν άλλα βήματα… προς το παρόν 🙂");
+    alert("Λάθος κωδικός.");
   }
 }
+
+/* Master unlock για όλα τα steps (ζητά master κωδικό) */
+function unlockAll(){
+  const master = prompt("Master κωδικός για ξεκλείδωμα όλων:");
+  const MASTER_KEY = "kimon-master"; // ΑΛΛΑΞΕ ΤΟΝ εδώ σε ό,τι θέλεις
+  if (!equalsInsensitive(master, MASTER_KEY)) {
+    alert("Λάθος master κωδικός.");
+    return;
+  }
+  [2,3,4].forEach(n=>{
+    const lock = document.getElementById(`lock${n}`);
+    const cont = document.getElementById(`content${n}`);
+    const area = document.getElementById(`unlock${n}`);
+    if (lock) lock.style.display = "none";
+    if (cont) cont.style.display = "block";
+    if (area) area.style.display = "none";
+  });
+  alert("Όλα τα βήματα ξεκλειδώθηκαν.");
+}
 </script>
-
 </body>
 </html>
-
-</body>
-</html>
-
