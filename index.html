@@ -4,74 +4,62 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Πώς να ξανακερδίσω την Άννα</title>
+
+<!-- Google Fonts (Greek) -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Noto+Serif:ital,wght@0,400;0,600;1,400&display=swap&subset=greek" rel="stylesheet">
+
 <style>
+  :root{
+    /* Βάλε εδώ το όνομα της εικόνας σου αν δεν είναι background.jpg */
+    --bg: url('background.jpg');
+  }
+  * { box-sizing: border-box; }
   body{
-    margin:0; min-height:100vh; display:flex; flex-direction:column;
-    align-items:center; justify-content:center; text-align:center;
-    color:#fff; font-family:Georgia, serif;
-    background:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+    margin:0; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+    color:#fff; text-align:center; font-family:"Noto Serif", serif;
+    /* Φόντο: η φωτογραφία σου + ελαφρύ σκοτείνιασμα για να διαβάζεται το κείμενο */
+    background:
+      linear-gradient(rgba(0,0,0,.35), rgba(0,0,0,.45)),
+      var(--bg) center/cover no-repeat fixed, #0b0b0f;
     padding:24px;
   }
   h1{
-    font-size:2.3rem;
+    font-family:"Playfair Display", serif; font-weight:700; letter-spacing:.4px;
+    font-size: clamp(2rem, 4vw, 3rem);
     margin:0 0 14px;
-    background:rgba(0,0,0,.5);
-    padding:12px 20px;
-    border-radius:14px;
+    background:rgba(0,0,0,.55);
+    padding:14px 22px; border-radius:14px;
   }
   p.lead{
-    max-width:720px;
-    background:rgba(0,0,0,.35);
-    padding:12px 16px;
-    border-radius:10px;
-    font-size:1.1rem;
+    max-width:760px; background:rgba(0,0,0,.38);
+    padding:12px 16px; border-radius:12px; font-size:1.05rem; line-height:1.6;
   }
-  .steps{max-width:780px; width:100%; margin-top:22px;}
+  .steps{max-width:820px; width:100%; margin-top:22px;}
   .card{
-    background:rgba(0,0,0,.35);
-    border:1px solid rgba(255,255,255,.15);
-    border-radius:14px;
-    padding:18px;
-    margin:12px 0;
-    text-align:left;
-    backdrop-filter: blur(3px);
-    animation: fadeIn 1.2s ease;
+    background:rgba(0,0,0,.35); border:1px solid rgba(255,255,255,.14);
+    border-radius:16px; padding:18px; margin:12px 0; text-align:left;
+    backdrop-filter: blur(3px); animation: fadeIn .8s ease;
   }
   .card h3{
-    margin:0 0 8px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+    font-family:"Playfair Display", serif; font-weight:600;
+    margin:0 0 8px; display:flex; align-items:center; justify-content:space-between;
   }
-  .btn{
-    border:0; padding:10px 14px; border-radius:10px; cursor:pointer;
-    font-weight:700; background:#ffffffd9; color:#222; transition:.25s;
+  /* details (χωρίς JS) */
+  details{ margin-top:8px; }
+  details > summary{
+    list-style:none; display:inline-block; padding:10px 14px; border-radius:10px;
+    background:#ffffffde; color:#222; font-weight:700; cursor:pointer; user-select:none;
   }
-  .btn:hover{transform:scale(1.05);}
-  .content{display:none; margin-top:6px; line-height:1.55;}
+  details[open] > summary{ filter:brightness(1.03); }
   .locked{
-    font-size:.95rem; opacity:.9;
-    display:flex; align-items:center; gap:8px;
+    font-size:.95rem; opacity:.92; display:flex; align-items:center; gap:8px;
+    background:rgba(0,0,0,.25); padding:10px 12px; border-radius:10px;
   }
   .lock-chip{
-    font-size:.8rem;
-    padding:4px 8px;
-    border-radius:999px;
-    background:#ff6b6b;
-    color:#fff;
+    font-size:.8rem; padding:4px 8px; border-radius:999px; background:#ff6b6b; color:#fff; font-weight:700;
   }
-  footer{
-    margin-top:20px;
-    font-size:.85rem;
-    opacity:.8;
-    background:rgba(0,0,0,.35);
-    padding:8px 16px;
-    border-radius:10px;
-  }
-  @keyframes fadeIn{
-    from{opacity:0; transform:translateY(15px);}
-    to{opacity:1; transform:none;}
-  }
+  footer{ margin-top:22px; font-size:.85rem; opacity:.85; background:rgba(0,0,0,.35); padding:8px 16px; border-radius:10px; }
+  @keyframes fadeIn{ from{opacity:0; transform:translateY(12px);} to{opacity:1; transform:none;} }
 </style>
 </head>
 <body>
@@ -79,13 +67,30 @@
   <p class="lead">Μερικές φορές, οι πιο όμορφες ιστορίες χρειάζονται λίγο χρόνο… και λίγη πίστη.</p>
 
   <div class="steps">
+    <!-- STEP 1 (Ανοίγει/κλείνει χωρίς JS) -->
     <div class="card">
-      <h3>Step 1 <button class="btn" onclick="reveal('s1')">Αποκάλυψε 💌</button></h3>
-      <div id="s1" class="content">
-        <p><strong>Κάνω δώρο εισιτήρια για το τέλος Δεκεμβρίου</strong> — έχοντας αυτοπεποίθηση ότι μέχρι τότε θα είμαστε ξανά μαζί.</p>
-      </div>
+      <h3>Step 1</h3>
+      <details>
+        <summary>Αποκάλυψε 💌</summary>
+        <div style="margin-top:12px; line-height:1.6;">
+          <p><strong>Αγοράζω εισιτήρια για το χωριό σου στην Ιταλία</strong> — για να σου δείξω πόσο σίγουρος είμαι ότι μέχρι τότε θα είμαστε μαζί.</p>
+        </div>
+      </details>
     </div>
 
+    <!-- STEP 2 (Κλειδωμένο — δεν υπάρχει κείμενο μέσα) -->
     <div class="card">
       <h3>Step 2 <span class="lock-chip">Κλειδωμένο 🔒</span></h3>
-      <div class="locked">
+      <div class="locked">Θα ανέβει σε μελλοντική ημερομηνία.</div>
+    </div>
+
+    <!-- STEP 3 (Κλειδωμένο — δεν υπάρχει κείμενο μέσα) -->
+    <div class="card">
+      <h3>Step 3 <span class="lock-chip">Κλειδωμένο 🔒</span></h3>
+      <div class="locked">Θα ανέβει σε μελλοντική ημερομηνία.</div>
+    </div>
+  </div>
+
+  <footer>📅 Τα επόμενα βήματα (2 & 3) θα αποκαλυφθούν όταν τα προσθέσεις με νέο deploy.</footer>
+</body>
+</html>
