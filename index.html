@@ -1,116 +1,139 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Πώς να ξανακερδίσω την γυναίκα της ζωής μου πίσω. (Ναι Άννα, εσύ είσαι αυτή)</title>
-
-  <!-- Ρομαντική γραμματοσειρά -->
-  <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #fff;
-      background: url('background.jpg') no-repeat center center/cover;
-      font-family: 'Playfair Display', serif;
-    }
-
-    h1 {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 15px 25px;
-      border-radius: 10px;
-      font-size: 2.2em;
-      font-family: 'Parisienne', cursive;
-      margin-bottom: 20px;
-    }
-
-    p.subtitle {
-      background: rgba(0, 0, 0, 0.5);
-      padding: 10px 20px;
-      border-radius: 10px;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1em;
-      margin-bottom: 40px;
-    }
-
-    .step {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 15px 25px;
-      border-radius: 15px;
-      margin: 10px;
-      width: 280px;
-      font-size: 1.2em;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    button {
-      margin-top: 10px;
-      padding: 10px 18px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1em;
-      transition: all 0.3s ease;
-    }
-
-    .reveal {
-      background-color: #ffb6c1;
-      color: #000;
-    }
-
-    .locked {
-      background-color: #ff4b4b;
-      color: #fff;
-      cursor: not-allowed;
-    }
-
-    .hidden-text {
-      display: none;
-      margin-top: 10px;
-      font-family: 'Parisienne', cursive;
-      font-size: 1.2em;
-      color: #ffe6e6;
-    }
-
-    .visible {
-      display: block;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Πώς να ξανακερδίσεις τη γυναίκα της ζωής σου (Για σένα μιλάω, Άννα)</title>
+<style>
+  body {
+    font-family: "Georgia", serif;
+    background-image: url('background.jpg'); /* βάλε τη δική σου φωτο */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-shadow: 1px 1px 4px #000;
+    padding: 40px;
+    line-height: 1.6;
+  }
+  h1, h2 {
+    text-align: center;
+  }
+  .step {
+    background: rgba(0,0,0,0.55);
+    padding: 20px;
+    border-radius: 12px;
+    margin: 25px auto;
+    max-width: 700px;
+  }
+  .locked {
+    text-align: center;
+    font-style: italic;
+    opacity: 0.7;
+  }
+  button {
+    display: block;
+    margin: 15px auto;
+    padding: 10px 22px;
+    border: none;
+    border-radius: 8px;
+    background: #e3b04b;
+    color: #000;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #ffd76a;
+  }
+  .hidden {
+    display: none;
+  }
+</style>
 </head>
-
 <body>
-  <h1>Πώς να ξανακερδίσω την γυναίκα της ζωής μου πίσω.<br>(Ναι Άννα, εσύ είσαι αυτή)</h1>
-  <p class="subtitle">Μερικές φορές, οι πιο όμορφες ιστορίες χρειάζονται λίγο χρόνο... και λίγη πίστη.</p>
 
-  <div class="step">
-    <strong>Step 1</strong>
-    <button class="reveal" onclick="revealText()">Αποκάλυψε 💖</button>
-    <p id="step1text" class="hidden-text">Αγοράζω εισιτήρια για το χωριό της στην Ιταλία, για να της δείξω πόσο σίγουρος είμαι ότι θα είμαστε έως τότε μαζί.</p>
-  </div>
+<h1>Πώς να ξανακερδίσεις τη γυναίκα της ζωής σου</h1>
+<p style="text-align:center;"><em>(Για σένα μιλάω, Άννα)</em></p>
 
-  <div class="step">
-    <strong>Step 2</strong>
-    <button class="locked">🔒 Κλειδωμένο</button>
-  </div>
+<div class="step" id="step1">
+  <h2>📘 STEP 1 – Η Αρχή</h2>
+  <p>Δεν ήξερα ποιο βιβλίο να διαλέξω.<br>
+  Διάλεξα αυτό που μιλάει για δύο ανθρώπους<br>
+  που χρειάστηκαν χρόνο για να μάθουν να βλέπουν καθαρά.</p>
 
-  <div class="step">
-    <strong>Step 3</strong>
-    <button class="locked">🔒 Κλειδωμένο</button>
-  </div>
+  <p>Όχι για να ταυτιστούμε∙<br>
+  αλλά γιατί ένιωσα ότι κάποτε ήμασταν κι εμείς κάπως έτσι.</p>
 
-  <script>
-    function revealText() {
-      document.getElementById("step1text").classList.toggle("visible");
+  <p>Δεν είναι απολογία∙ είναι υπενθύμιση.</p>
+
+  <p>Έμαθα πως αν χαθείς απ’ τον εαυτό σου,<br>
+  χάνεις και όσους αγαπάς.</p>
+
+  <p>Αυτή τη φορά, είμαι εδώ.</p>
+</div>
+
+<!-- Τα επόμενα βήματα εμφανίζονται αλλά είναι "αναμενόμενα" -->
+<div class="step" id="step2">
+  <h2>💐 STEP 2 – Ανθοδέσμη</h2>
+  <p class="locked">Αναμένεται…</p>
+</div>
+
+<div class="step" id="step3">
+  <h2>🧺 STEP 3 – Η ησυχία που αξίζεις</h2>
+  <p class="locked">Αναμένεται…</p>
+</div>
+
+<div class="step" id="step4">
+  <h2>🌅 STEP 4 – Εκεί που ξεκίνησαν όλα</h2>
+  <p class="locked">Αναμένεται…</p>
+</div>
+
+<button onclick="revealNext()">Αποκάλυψε το επόμενο βήμα</button>
+
+<script>
+let currentStep = 1;
+function revealNext() {
+  const next = document.getElementById(`step${currentStep+1}`);
+  if (next) {
+    // Αν υπάρχει "Αναμένεται...", αντικατάστησέ το με το πραγματικό περιεχόμενο
+    if (currentStep === 1) {
+      next.innerHTML = `
+      <h2>💐 STEP 2 – Ανθοδέσμη</h2>
+      <p>Για όλα τα λουλούδια που δεν σου έδωσα ποτέ.</p>
+      <p>Όχι επειδή δεν ήθελα∙<br>
+      αλλά γιατί τότε δεν ήξερα τι σημαίνει να δείχνεις κάτι την ώρα που το νιώθεις.</p>
+      <p>Σου αφήνω λίγο χρόνο ακόμα να διαβάσεις το βιβλίο σου.<br>
+      Θα περιμένω — χωρίς λόγια, μόνο με λουλούδια.</p>`;
+    } else if (currentStep === 2) {
+      next.innerHTML = `
+      <h2>🧺 STEP 3 – Η ησυχία που αξίζεις</h2>
+      <p>Ένα καλάθι με μικρά πράγματα.<br>
+      Ένα αρωματικό κερί, μια κρέμα σώματος, μια κουβερτούλα.</p>
+      <p>Όχι για να σε θυμίσω∙<br>
+      αλλά για να σου θυμίσω να προσέχεις εσένα.</p>
+      <p>Για όλες τις φορές που δεν το έκανα εγώ.</p>`;
+    } else if (currentStep === 3) {
+      next.innerHTML = `
+      <h2>🌅 STEP 4 – Εκεί που ξεκίνησαν όλα</h2>
+      <p>Ο Κουλές.<br>
+      Το μέρος του πρώτου φιλιού.</p>
+      <p>Δεν θέλω να το ξανακάνουμε ίδιο∙<br>
+      θέλω να το κάνουμε από την αρχή.</p>
+      <p>Αν έρθεις, θα ξέρεις.</p>
+      <p>Κι αν δεν έρθεις,<br>
+      πάλι θα κάθομαι εκεί.<br>
+      Ήσυχος.<br>
+      Γιατί αυτή τη φορά κράτησα τον λόγο μου.</p>`;
     }
-  </script>
+    currentStep++;
+  } else {
+    alert("Δεν υπάρχουν άλλα βήματα… προς το παρόν 🙂");
+  }
+}
+</script>
+
 </body>
 </html>
+
+</body>
+</html>
+
